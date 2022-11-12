@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var userVM: UserViewModel
+    
     var body: some View {
         NavigationStack {
-            LandingPage()
+            LandingPage().environmentObject(userVM)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(UserViewModel())
     }
 }

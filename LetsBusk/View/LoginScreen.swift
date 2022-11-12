@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @EnvironmentObject var userVM: UserViewModel
+
     @State var email = ""
     @State var password = ""
+    @State var loginPassed = false
+    @State var errorOccurred = false
     
     var body: some View {
         VStack {
@@ -32,11 +36,26 @@ struct LoginScreen: View {
             }
             
             Button(action: {
-                withAnimation {
+                userVM.login(email: email, password: password) { success in
+                    if success {
+                        withAnimation {
+                            loginPassed = true
+                        }
+                    } else {
+                        errorOccurred = true
+                    }
                 }
+                
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).padding(.top, 150)
+                .navigationDestination(isPresented: $loginPassed, destination: {
+                    EmptyView().environmentObject(userVM)
+                }).alert("Error!", isPresented: $errorOccurred) {
+                    Button("Ok.", role: .cancel, action: {
+                        errorOccurred = false
+                    })
+                }
         }
         
     }
@@ -44,6 +63,6 @@ struct LoginScreen: View {
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen()
+        LoginScreen().environmentObject(UserViewModel())
     }
 }

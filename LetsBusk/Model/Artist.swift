@@ -12,10 +12,10 @@ class Artist: Codable {
     var name: String
     var bio: String
     var tags: [String : Bool]
-    var pfp: String
+    var pfp: Data
     var myEvents: [String]
     
-    init(name: String, bio: String, tags: [String : Bool], pfp: String, myEvents: [String]) {
+    init(name: String, bio: String, tags: [String : Bool], pfp: Data, myEvents: [String]) {
         self.name = name
         self.bio = bio
         self.tags = tags
@@ -43,6 +43,14 @@ class Artist: Codable {
     
     func addEvent(event: String) { //given event uid as string
         myEvents.append(event)
+    }
+    
+    func setPfp(pfp: Data) {
+        self.pfp = pfp
+    }
+    
+    func getPFPforUI() -> Data {
+        return pfp //UIImage(pfp)
     }
     
     

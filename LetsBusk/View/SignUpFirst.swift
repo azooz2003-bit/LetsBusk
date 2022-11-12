@@ -10,9 +10,13 @@
 import SwiftUI
 
 struct SignUpFirst: View {
+    @EnvironmentObject var userVM: UserViewModel
+    
     @State var name = ""
     @State var email = ""
     @State var password = ""
+    @State var firstRegPassed = false
+    @State var errorOccurred = false
     
     var body: some View {
         VStack {
@@ -42,11 +46,25 @@ struct SignUpFirst: View {
             }
             
             Button(action: {
-                withAnimation {
+                userVM.signUp(name: name, email: email, password: password) { success in
+                    withAnimation {
+                        if success {
+                            firstRegPassed = true
+                        } else {
+                            errorOccurred = true
+                        }
+                    }
                 }
+                
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
-            }.shadow(radius: 3).padding(.top, 150)
+            }.shadow(radius: 3).padding(.top, 150).navigationDestination(isPresented: $firstRegPassed, destination: {
+                SignUpSecond().environmentObject(userVM)
+            }).alert("Error!", isPresented: $errorOccurred) {
+                Button("Ok.", role: .cancel, action: {
+                    errorOccurred = false
+                })
+            }
         }
         
     }
@@ -54,6 +72,6 @@ struct SignUpFirst: View {
 
 struct SignUpFirst_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpFirst()
+        SignUpFirst().environmentObject(UserViewModel())
     }
 }

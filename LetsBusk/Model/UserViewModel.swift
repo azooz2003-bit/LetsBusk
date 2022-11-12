@@ -76,8 +76,13 @@ class UserViewModel: ObservableObject {
             
             do {
                 let data = try document!.data()
-                self.assignArtistDataLocally(data: data!)
-                completion(true)
+                self.getPFP { success in
+                    if (success) {
+                        self.assignArtistDataLocally(data: data!)
+                    }
+                    completion(success)
+                }
+                
             } catch {
                 completion(false)
             }
@@ -90,6 +95,7 @@ class UserViewModel: ObservableObject {
         artist?.bio = data["bio"] as! String
         artist?.tags = data["tags"] as! [String : Bool]
         // Do some stuff with image to save as encode for pfp
+        artist?.setPfp(pfp: data["pfp"] as! Data)
         artist?.myEvents = ["events"]
         
         
@@ -100,8 +106,9 @@ class UserViewModel: ObservableObject {
     
     // WHEN SETTING NEW USER, TAKING SCHOOL FROM DROPDOWN AND EMAIL INPUT
     
-    func signUp(email: String, password: String, completion: @escaping (Bool) -> Void) {
+    func signUp(name: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         isAuthenticating = true
+        self.artist?.setName(name: name)
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             
             if result == nil || error != nil {
@@ -121,6 +128,72 @@ class UserViewModel: ObservableObject {
             
         }
     }
+    
+    func persistPFPStorage(image: UIImage, completion: @escaping (Bool) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        let ref = storage.reference(withPath: uuid!)
+        ref.putData(imageData) { metadata, error in
+            if let error = error {
+                completion(false)
+                print("Image not uploaded! " + error.localizedDescription)
+                return
+            } else {
+                ref.downloadURL { url, error in
+                    if let error = error {
+                        completion(false)
+                        print("Image not uploaded! " + error.localizedDescription)
+                        return
+                    } else {
+                        self.uploadPFPToDB(url: url!.absoluteString) { success in
+                            completion(success)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func uploadPFPToDB(url: String, completion: @escaping (Bool) -> Void) {
+        db.collection("artists").document(uuid!).setData(["pfp" : url], merge: true) { error in
+            if let error = error {
+                completion(false)
+                print("Image not uploaded! " + error.localizedDescription)
+                return
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+    func getPFP(completion: @escaping (Bool) -> Void) {
+        let url = db.document(uuid!).getDocument { document, error in
+            if let error = error {
+                completion(false)
+                print("Image not received! " + error.localizedDescription)
+                return
+            } else {
+                let data = document?.data()
+                let url = data!["pfp"] // POTENTIAL RACE ISSUE
+                self.getPFPfromStorage(url: url as! String) { success in
+                    completion(success)
+                }
+            }
+        }
+    }
+    
+    func getPFPfromStorage(url: String, completion: @escaping (Bool) -> Void) {
+        storage.reference().child(url).getData(maxSize: 1024 * 1024) { data, error in
+            if let error = error {
+                completion(false)
+                print("Image not received! " + error.localizedDescription)
+                return
+            } else {
+                self.artist?.setPfp(pfp: data!)
+                completion(true)
+            }
+        }
+    }
+    
     
     func addData(completion: @escaping (Bool) -> Void) {
         if !artistIsAuthenticated {

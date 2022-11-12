@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PostLandingPage: View {
+    @EnvironmentObject var userVM: UserViewModel
+    
     @State var loginPressed = false
     @State var signUpPressed = false
     
@@ -33,7 +35,7 @@ struct PostLandingPage: View {
             }) {
                 Text("Login").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).navigationDestination(isPresented: $loginPressed, destination: {
-                EmptyView()
+                EmptyView().environmentObject(userVM)
             })
             
             Button(action: {
@@ -43,7 +45,7 @@ struct PostLandingPage: View {
             }) {
                 Text("Sign-up").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).navigationDestination(isPresented: $signUpPressed, destination: {
-                SignUpFirst()
+                SignUpFirst().environmentObject(userVM)
             })
                 
             
@@ -61,6 +63,6 @@ struct PostLandingPage: View {
 
 struct PostLandingPage_Previews: PreviewProvider {
     static var previews: some View {
-        PostLandingPage()
+        PostLandingPage().environmentObject(UserViewModel())
     }
 }

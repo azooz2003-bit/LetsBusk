@@ -25,9 +25,11 @@ struct YourApp: App {
 
 
   var body: some Scene {
+    let uvm = UserViewModel()
+      
     WindowGroup {
       NavigationView {
-        ContentView()
+          ContentView().environmentObject(uvm)
       }
     }
   }
