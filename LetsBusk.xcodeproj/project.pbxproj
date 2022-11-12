@@ -16,6 +16,18 @@
 		A374CAE4291F3A5600C5A909 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A374CAE3291F3A5600C5A909 /* FirebaseFirestore */; };
 		A374CAE6291F3A5600C5A909 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A374CAE5291F3A5600C5A909 /* FirebaseFirestoreSwift */; };
 		A374CAE8291F3A5600C5A909 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A374CAE7291F3A5600C5A909 /* FirebaseStorage */; };
+		A374CAEC291F3BA200C5A909 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CAEB291F3BA200C5A909 /* LandingPage.swift */; };
+		A374CAEF291F3F9F00C5A909 /* Heebo-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAEE291F3F9F00C5A909 /* Heebo-VariableFont_wght.ttf */; };
+		A374CAF9291F3FB600C5A909 /* Heebo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF0291F3FB600C5A909 /* Heebo-SemiBold.ttf */; };
+		A374CAFA291F3FB600C5A909 /* Heebo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF1291F3FB600C5A909 /* Heebo-Light.ttf */; };
+		A374CAFB291F3FB600C5A909 /* Heebo-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF2291F3FB600C5A909 /* Heebo-ExtraLight.ttf */; };
+		A374CAFC291F3FB600C5A909 /* Heebo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF3291F3FB600C5A909 /* Heebo-Thin.ttf */; };
+		A374CAFD291F3FB600C5A909 /* Heebo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF4291F3FB600C5A909 /* Heebo-Black.ttf */; };
+		A374CAFE291F3FB600C5A909 /* Heebo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF5291F3FB600C5A909 /* Heebo-Medium.ttf */; };
+		A374CAFF291F3FB600C5A909 /* Heebo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF6291F3FB600C5A909 /* Heebo-Bold.ttf */; };
+		A374CB00291F3FB600C5A909 /* Heebo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF7291F3FB600C5A909 /* Heebo-ExtraBold.ttf */; };
+		A374CB01291F3FB600C5A909 /* Heebo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A374CAF8291F3FB600C5A909 /* Heebo-Regular.ttf */; };
+		A374CB04291F42B100C5A909 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB03291F42B100C5A909 /* OnboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +37,19 @@
 		A374CAD4291F28BA00C5A909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A374CAD7291F28BA00C5A909 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A374CADE291F39C600C5A909 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A374CAEB291F3BA200C5A909 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		A374CAEE291F3F9F00C5A909 /* Heebo-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-VariableFont_wght.ttf"; path = "../../../../../Downloads/Heebo/Heebo-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A374CAF0291F3FB600C5A909 /* Heebo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-SemiBold.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-SemiBold.ttf"; sourceTree = "<group>"; };
+		A374CAF1291F3FB600C5A909 /* Heebo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Light.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Light.ttf"; sourceTree = "<group>"; };
+		A374CAF2291F3FB600C5A909 /* Heebo-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-ExtraLight.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A374CAF3291F3FB600C5A909 /* Heebo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Thin.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Thin.ttf"; sourceTree = "<group>"; };
+		A374CAF4291F3FB600C5A909 /* Heebo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Black.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Black.ttf"; sourceTree = "<group>"; };
+		A374CAF5291F3FB600C5A909 /* Heebo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Medium.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Medium.ttf"; sourceTree = "<group>"; };
+		A374CAF6291F3FB600C5A909 /* Heebo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Bold.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Bold.ttf"; sourceTree = "<group>"; };
+		A374CAF7291F3FB600C5A909 /* Heebo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-ExtraBold.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A374CAF8291F3FB600C5A909 /* Heebo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heebo-Regular.ttf"; path = "../../../../../Downloads/Heebo/static/Heebo-Regular.ttf"; sourceTree = "<group>"; };
+		A374CB02291F409F00C5A909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A374CB03291F42B100C5A909 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +86,12 @@
 		A374CACF291F28B900C5A909 /* LetsBusk */ = {
 			isa = PBXGroup;
 			children = (
+				A374CB02291F409F00C5A909 /* Info.plist */,
+				A374CAED291F3F6B00C5A909 /* Fonts */,
 				A374CAEA291F3B1B00C5A909 /* View */,
 				A374CAE9291F3ADF00C5A909 /* Model */,
 				A374CADE291F39C600C5A909 /* GoogleService-Info.plist */,
 				A374CAD0291F28B900C5A909 /* LetsBuskApp.swift */,
-				A374CAD2291F28B900C5A909 /* ContentView.swift */,
 				A374CAD4291F28BA00C5A909 /* Assets.xcassets */,
 				A374CAD6291F28BA00C5A909 /* Preview Content */,
 			);
@@ -90,8 +116,28 @@
 		A374CAEA291F3B1B00C5A909 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A374CAD2291F28B900C5A909 /* ContentView.swift */,
+				A374CAEB291F3BA200C5A909 /* LandingPage.swift */,
+				A374CB03291F42B100C5A909 /* OnboardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A374CAED291F3F6B00C5A909 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A374CAEE291F3F9F00C5A909 /* Heebo-VariableFont_wght.ttf */,
+				A374CAF4291F3FB600C5A909 /* Heebo-Black.ttf */,
+				A374CAF6291F3FB600C5A909 /* Heebo-Bold.ttf */,
+				A374CAF7291F3FB600C5A909 /* Heebo-ExtraBold.ttf */,
+				A374CAF2291F3FB600C5A909 /* Heebo-ExtraLight.ttf */,
+				A374CAF1291F3FB600C5A909 /* Heebo-Light.ttf */,
+				A374CAF5291F3FB600C5A909 /* Heebo-Medium.ttf */,
+				A374CAF8291F3FB600C5A909 /* Heebo-Regular.ttf */,
+				A374CAF0291F3FB600C5A909 /* Heebo-SemiBold.ttf */,
+				A374CAF3291F3FB600C5A909 /* Heebo-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +208,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A374CAD8291F28BA00C5A909 /* Preview Assets.xcassets in Resources */,
+				A374CAFE291F3FB600C5A909 /* Heebo-Medium.ttf in Resources */,
+				A374CAFA291F3FB600C5A909 /* Heebo-Light.ttf in Resources */,
+				A374CB01291F3FB600C5A909 /* Heebo-Regular.ttf in Resources */,
+				A374CAEF291F3F9F00C5A909 /* Heebo-VariableFont_wght.ttf in Resources */,
+				A374CB00291F3FB600C5A909 /* Heebo-ExtraBold.ttf in Resources */,
+				A374CAFD291F3FB600C5A909 /* Heebo-Black.ttf in Resources */,
+				A374CAFB291F3FB600C5A909 /* Heebo-ExtraLight.ttf in Resources */,
 				A374CADF291F39C600C5A909 /* GoogleService-Info.plist in Resources */,
+				A374CAFC291F3FB600C5A909 /* Heebo-Thin.ttf in Resources */,
+				A374CAF9291F3FB600C5A909 /* Heebo-SemiBold.ttf in Resources */,
+				A374CAFF291F3FB600C5A909 /* Heebo-Bold.ttf in Resources */,
 				A374CAD5291F28BA00C5A909 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,8 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A374CB04291F42B100C5A909 /* OnboardView.swift in Sources */,
 				A374CAD3291F28B900C5A909 /* ContentView.swift in Sources */,
 				A374CAD1291F28B900C5A909 /* LetsBuskApp.swift in Sources */,
+				A374CAEC291F3BA200C5A909 /* LandingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +365,7 @@
 				DEVELOPMENT_TEAM = KJ7YS82G45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsBusk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,6 +395,7 @@
 				DEVELOPMENT_TEAM = KJ7YS82G45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsBusk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
