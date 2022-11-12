@@ -58,7 +58,10 @@ enum Tags: String, CaseIterable, Hashable {
             col = Color.orange.opacity(0.5)
         case .Violin:
             col = Color.orange.opacity(0.5)
+        default:
+            col = Color.orange.opacity(0.5)
         }
+        
         
         return col
     }
@@ -84,10 +87,10 @@ func nestedTags(maxCol: Int) -> [[Tags]] {
     return nested
 }
 
-func tagMap() -> [Tags : Bool] {
-    var tagDic: [Tags : Bool] = [:]
+func tagMap() -> [String : Bool] {
+    var tagDic: [String : Bool] = [:]
     for tag in Tags.allCases {
-        tagDic[Tags(rawValue: tag.rawValue)!] = false
+        tagDic[tag.rawValue] = false
     }
     return tagDic
 }

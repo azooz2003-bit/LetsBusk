@@ -10,6 +10,8 @@ import SwiftUIX
 
 struct SignUpSecond: View {
     @EnvironmentObject var userVM: UserViewModel
+    
+    let tagsView = TagViews()
 
     @State var bio = ""
     @State var image: UIImage?
@@ -25,11 +27,11 @@ struct SignUpSecond: View {
                 
                 ZStack {
                     if image != nil {
-                        Image(uiImage: image!).resizable().frame(width: 170, height: 170).clipShape(Ellipse()).overlay(Ellipse().stroke(Color.orange, lineWidth: 4)).shadow(radius: 3)
+                        Image(uiImage: image!).resizable().frame(width: 170, height: 170).clipShape(Ellipse()).overlay(Ellipse().stroke(Color.orange, lineWidth: 4)).shadow(radius: 6)
                         
                     } else {
                         ZStack {
-                            Ellipse().fillAndStrokeBorder(.white, borderColor: .orange, borderWidth: 4).frame(width: 170, height: 170).shadow(radius: 3)
+                            Ellipse().fillAndStrokeBorder(.white, borderColor: .orange, borderWidth: 4).frame(width: 170, height: 170).shadow(radius: 6)
                             Text("?").font(.system(size: 60)).foregroundColor(.orange)
                         }
                         
@@ -51,12 +53,15 @@ struct SignUpSecond: View {
             
             Text("Genre Tags").padding(.leading, 32).font(.system(size: 22, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.top, 20)
             
-            TagsView()
-            
+            tagsView.environmentObject(userVM
+            )
             
             
             Button(action: {
-                //CREATE SECOND PHASE FUNCTION INSTEAD
+                userVM.artist!.setBio(bio: bio)
+                print(userVM.artist?.bio)
+                 
+                    
                 userVM.addData(pfpImage: image!) { success in
                     if success {
                         withAnimation {
@@ -68,9 +73,13 @@ struct SignUpSecond: View {
                     
                 }
                 
+                print("Button action done.")
+                
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
-            }.shadow(radius: 3).padding(.top, 30).alert("Error!", isPresented: $errorOccurred) {
+            }.navigationDestination(isPresented: $secondRegPassed, destination: {
+                PerformanceFeed().environmentObject(userVM)
+            }).shadow(radius: 3).padding(.top, 30).alert("Error!", isPresented: $errorOccurred) {
                 Button("Ok.", role: .cancel, action: {
                     errorOccurred = false
                 })

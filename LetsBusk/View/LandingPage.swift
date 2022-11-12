@@ -11,10 +11,13 @@ import SwiftUI
 struct LandingPage: View {
     @State var continuePressed = false
     
+    @EnvironmentObject var userVM: UserViewModel
+
+    
     var body: some View {
         
         TabView {
-            OnboardView(systemImage: "Guitarist", title: "Connecting Local Artists", description: "“Yoga is the art work of awareness on the canvas of body, mind, and soul.”")
+            OnboardView(systemImage: "Guitarist", title: "Connecting Local Artists", description: "“Art is the expression of the profoundest thoughts in the simplest way.”")
             OnboardView(systemImage: "Art", title: "Spreading Joy in Your Area", description: "“Art enables us to find ourselves and lose ourselves at the same time.”")
             
             VStack {
@@ -28,7 +31,7 @@ struct LandingPage: View {
                     Text("Continue").frame(minWidth: 200, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 25, weight: .semibold, design: .rounded))
                 }.shadow(radius: 1).padding(.top)
             }.navigationDestination(isPresented: $continuePressed) {
-                    PostLandingPage().navigationBarBackButtonHidden(true)
+                PostLandingPage().environmentObject(userVM).navigationBarBackButtonHidden(true)
             }
             
         }.tabViewStyle(.page(indexDisplayMode: .always)).indexViewStyle(.page(backgroundDisplayMode: .always))
@@ -37,6 +40,6 @@ struct LandingPage: View {
 
 struct LandingPage_Previews: PreviewProvider {
     static var previews: some View {
-        LandingPage()
+        LandingPage().environmentObject(UserViewModel())
     }
 }

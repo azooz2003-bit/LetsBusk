@@ -25,14 +25,14 @@ struct LoginScreen: View {
                 
                 Text("Email").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32).padding(.top, 20)
                 
-                TextField("johnhenry@gmail.com", text: $email).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
+                TextField("johnhenry@gmail.com", text: $email).padding(.leading, 25).frame(width: 350, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
             }
             
             Group {
                 
                 Text("Password").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32).padding(.top, 20)
                 
-                SecureField("********", text: $password).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
+                SecureField("********", text: $password).padding(.leading, 25).frame(width: 350, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
             }
             
             Button(action: {

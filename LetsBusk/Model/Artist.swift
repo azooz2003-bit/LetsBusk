@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-class Artist: Codable {
+class Artist: ObservableObject {
     var name: String
     var bio: String
-    var tags: [String : Bool]
+    @Published var tags: [String : Bool]
     var pfp: Data
-    var myEvents: [String]
+    @Published var myEvents: [String]
     
-    init(name: String, bio: String, tags: [String : Bool], pfp: Data, myEvents: [String]) {
+    init(name: String = "", bio: String = "", tags: [String : Bool] = [:], pfp: Data = Data(), myEvents: [String] = []) {
         self.name = name
         self.bio = bio
         self.tags = tags
@@ -31,10 +31,17 @@ class Artist: Codable {
         self.bio = bio
     }
     
+    func setTags(tags: [String : Bool]) {
+        self.tags = tags
+    }
+    
     func addTag(tag: String) {
         tags[tag] = true
     }
     
+    func toggleTag(tag: String) {
+        tags[tag]!.toggle()
+    }
     // FUNCTION for image
     
     func removeTag(tag: String) {

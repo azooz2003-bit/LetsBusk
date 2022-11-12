@@ -28,7 +28,13 @@
 		A374CB14291F92AA00C5A909 /* SignUpSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB13291F92AA00C5A909 /* SignUpSecond.swift */; };
 		A374CB17291F94E200C5A909 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = A374CB16291F94E200C5A909 /* SwiftUIX */; };
 		A374CB19291FC96B00C5A909 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB18291FC96B00C5A909 /* Tags.swift */; };
-		A374CB1B291FCD7200C5A909 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB1A291FCD7200C5A909 /* TagsView.swift */; };
+		A374CB1B291FCD7200C5A909 /* TagViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB1A291FCD7200C5A909 /* TagViews.swift */; };
+		A3B7D780292024EC001F6128 /* PerformanceFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D77F292024EC001F6128 /* PerformanceFeed.swift */; };
+		A3B7D782292024F7001F6128 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D781292024F7001F6128 /* ProfileScreen.swift */; };
+		A3B7D78429202509001F6128 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D78329202509001F6128 /* MapScreen.swift */; };
+		A3B7D78629202524001F6128 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D78529202524001F6128 /* EventsViewModel.swift */; };
+		A3B7D78A2920392F001F6128 /* ArtistTabViewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D7892920392F001F6128 /* ArtistTabViewEntry.swift */; };
+		A3B7D78C29203AD6001F6128 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7D78B29203AD6001F6128 /* TabRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +56,13 @@
 		A374CB11291F87A100C5A909 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A374CB13291F92AA00C5A909 /* SignUpSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecond.swift; sourceTree = "<group>"; };
 		A374CB18291FC96B00C5A909 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
-		A374CB1A291FCD7200C5A909 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		A374CB1A291FCD7200C5A909 /* TagViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViews.swift; sourceTree = "<group>"; };
+		A3B7D77F292024EC001F6128 /* PerformanceFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceFeed.swift; sourceTree = "<group>"; };
+		A3B7D781292024F7001F6128 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		A3B7D78329202509001F6128 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		A3B7D78529202524001F6128 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		A3B7D7892920392F001F6128 /* ArtistTabViewEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTabViewEntry.swift; sourceTree = "<group>"; };
+		A3B7D78B29203AD6001F6128 /* TabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +122,13 @@
 		A374CAE9291F3ADF00C5A909 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A3B7D78B29203AD6001F6128 /* TabRouter.swift */,
 				A374CB09291F7E2E00C5A909 /* Event.swift */,
 				A374CB0B291F7E3600C5A909 /* Artist.swift */,
 				A374CB0D291F837800C5A909 /* UserViewModel.swift */,
 				A374CB11291F87A100C5A909 /* Errors.swift */,
 				A374CB18291FC96B00C5A909 /* Tags.swift */,
+				A3B7D78529202524001F6128 /* EventsViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +143,11 @@
 				A374CB07291F6F8600C5A909 /* SignUpFirst.swift */,
 				A374CB13291F92AA00C5A909 /* SignUpSecond.swift */,
 				A374CB0F291F83DB00C5A909 /* LoginScreen.swift */,
-				A374CB1A291FCD7200C5A909 /* TagsView.swift */,
+				A374CB1A291FCD7200C5A909 /* TagViews.swift */,
+				A3B7D77F292024EC001F6128 /* PerformanceFeed.swift */,
+				A3B7D781292024F7001F6128 /* ProfileScreen.swift */,
+				A3B7D78329202509001F6128 /* MapScreen.swift */,
+				A3B7D7892920392F001F6128 /* ArtistTabViewEntry.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,7 +235,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A374CB04291F42B100C5A909 /* OnboardView.swift in Sources */,
+				A3B7D78A2920392F001F6128 /* ArtistTabViewEntry.swift in Sources */,
+				A3B7D78C29203AD6001F6128 /* TabRouter.swift in Sources */,
 				A374CAD3291F28B900C5A909 /* ContentView.swift in Sources */,
+				A3B7D780292024EC001F6128 /* PerformanceFeed.swift in Sources */,
 				A374CB08291F6F8600C5A909 /* SignUpFirst.swift in Sources */,
 				A374CB14291F92AA00C5A909 /* SignUpSecond.swift in Sources */,
 				A374CB06291F583700C5A909 /* PostLandingPage.swift in Sources */,
@@ -225,11 +246,14 @@
 				A374CB0A291F7E2E00C5A909 /* Event.swift in Sources */,
 				A374CB0C291F7E3600C5A909 /* Artist.swift in Sources */,
 				A374CB12291F87A100C5A909 /* Errors.swift in Sources */,
-				A374CB1B291FCD7200C5A909 /* TagsView.swift in Sources */,
+				A374CB1B291FCD7200C5A909 /* TagViews.swift in Sources */,
 				A374CB0E291F837800C5A909 /* UserViewModel.swift in Sources */,
+				A3B7D78429202509001F6128 /* MapScreen.swift in Sources */,
 				A374CAEC291F3BA200C5A909 /* LandingPage.swift in Sources */,
 				A374CB10291F83DB00C5A909 /* LoginScreen.swift in Sources */,
+				A3B7D78629202524001F6128 /* EventsViewModel.swift in Sources */,
 				A374CB19291FC96B00C5A909 /* Tags.swift in Sources */,
+				A3B7D782292024F7001F6128 /* ProfileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

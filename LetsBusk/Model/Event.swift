@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-class Event: ObservableObject, Codable {
+class Event: ObservableObject {
     var title: String
     var genreTags: [String : Bool]
     var time: Date

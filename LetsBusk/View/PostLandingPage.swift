@@ -17,7 +17,7 @@ struct PostLandingPage: View {
         
         VStack {
             
-            OnboardView(systemImage: "Paint", title: "Join the Community", description: "“Creativity is contagious, pass it on.”")
+            OnboardView(systemImage: "Paint", title: "Join the Community", description: "“Creativity is contagious, pass it on.”").padding(.top, 30)
             
             HStack {
                 Rectangle().fill(Color.black).frame(width: 150, height: 1)
@@ -26,7 +26,7 @@ struct PostLandingPage: View {
                 
                 Rectangle().fill(Color.black).frame(width: 150, height: 1)
                 
-            }.padding(.top, 50)
+            }.padding(.top, 90)
             
             Button(action: {
                 withAnimation {
@@ -35,7 +35,7 @@ struct PostLandingPage: View {
             }) {
                 Text("Login").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).navigationDestination(isPresented: $loginPressed, destination: {
-                EmptyView().environmentObject(userVM)
+                LoginScreen().environmentObject(userVM)
             })
             
             Button(action: {
@@ -56,7 +56,7 @@ struct PostLandingPage: View {
                 }) {
                     Text("Click here.").font(.system(size: 18, weight: .semibold, design: .rounded)).foregroundColor(.orange)
                 }
-            }.padding(.top)
+            }.padding(.top, 20)
         }
     }
 }

@@ -22,10 +22,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct YourApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    @StateObject var uvm = UserViewModel(artist: Artist())
+    
 
   var body: some Scene {
-    let uvm = UserViewModel()
       
     WindowGroup {
       NavigationView {

@@ -39,6 +39,10 @@ class UserViewModel: ObservableObject {
         artist != nil && artistIsAuthenticated
     }
     
+    init(artist: Artist? = nil) {
+        self.artist = artist
+    }
+    
     func login(email: String, password: String, completion: @escaping (Bool) -> (Void)) {
         isAuthenticating = true
         
@@ -54,6 +58,7 @@ class UserViewModel: ObservableObject {
                     self?.isAuthenticating = false
                     completion(success)
                 }
+                print(self!.artist)
             }
         }
         
@@ -75,7 +80,7 @@ class UserViewModel: ObservableObject {
             }
             
             do {
-                let data = try document!.data()
+                let data = document!.data()
                 self.getPFP { success in
                     if (success) {
                         self.assignArtistDataLocally(data: data!)
@@ -91,12 +96,12 @@ class UserViewModel: ObservableObject {
     }
     
     func assignArtistDataLocally(data: [String : Any]) {
-        artist?.name = data["name"] as! String
-        artist?.bio = data["bio"] as! String
-        artist?.tags = data["tags"] as! [String : Bool]
+        artist!.name = data["name"] as! String
+        artist!.bio = data["bio"] as! String
+        artist!.tags = data["tags"] as! [String : Bool]
         // Do some stuff with image to save as encode for pfp
-        artist?.setPfp(pfp: data["pfp"] as! Data)
-        artist?.myEvents = ["events"]
+        //artist!.setPfp(pfp: data["pfp"] as! Data)
+        artist!.myEvents = data["events"] as! [String]
         
         
     }
@@ -127,6 +132,11 @@ class UserViewModel: ObservableObject {
               
             
         }
+    }
+    
+    func initializeTags(tags: [String : Bool], completion: @escaping (Bool) -> Void) {
+        artist!.setTags(tags: tags)
+        completion(true)
     }
     
     func persistPFPStorage(image: UIImage, completion: @escaping (Bool) -> Void) {
@@ -160,16 +170,16 @@ class UserViewModel: ObservableObject {
                 print("Image not uploaded! " + error.localizedDescription)
                 return
             } else {
-                completion(false)
+                completion(true)
             }
         }
     }
     
     func getPFP(completion: @escaping (Bool) -> Void) {
-        let url = db.document(uuid!).getDocument { document, error in
-            if let error = error {
+        db.collection("artists").document(uuid!).getDocument { document, error in
+            if error != nil {
                 completion(false)
-                print("Image not received! " + error.localizedDescription)
+                print("Image not received! " + error!.localizedDescription)
                 return
             } else {
                 let data = document?.data()
@@ -182,13 +192,13 @@ class UserViewModel: ObservableObject {
     }
     
     func getPFPfromStorage(url: String, completion: @escaping (Bool) -> Void) {
-        storage.reference().child(url).getData(maxSize: 1024 * 1024) { data, error in
+        storage.reference(forURL: url).getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 completion(false)
                 print("Image not received! " + error.localizedDescription)
                 return
             } else {
-                self.artist?.setPfp(pfp: data!)
+                self.artist!.setPfp(pfp: data!)
                 completion(true)
             }
         }
@@ -200,18 +210,25 @@ class UserViewModel: ObservableObject {
             completion(false)
         }
         
+        print(artist!)
+        print(artist!.bio)
+        print(artist!.tags)
         if let pfpImage = pfpImage {
+            "pre-pre-success check"
             persistPFPStorage(image: pfpImage) { success in
-                
+                print("pre-success check")
                 if success {
-                    self.db.collection("users").document((self.uuid)!).setData(["name" : self.artist?.name, "bio" : self.artist?.bio, "tags" : self.artist?.tags, "events" : self.artist?.myEvents]) // pfp is already set from calling sub-function
+                    print("successful")
+                    self.db.collection("artists").document((self.uuid)!).setData(["name" : self.artist!.name, "bio" : self.artist!.bio, "tags" : self.artist!.tags, "events" : self.artist!.myEvents], merge: true) // pfp is already set from calling sub-function
+                } else {
+                    print("not success")
+
                 }
-                
                 completion(success)
 
             }
         } else {
-            self.db.collection("users").document((self.uuid)!).setData(["name" : self.artist?.name, "bio" : self.artist?.bio, "tags" : self.artist?.tags, "events" : self.artist?.myEvents]) // pfp is already set from calling sub-function
+            self.db.collection("artists").document((self.uuid)!).setData(["name" : self.artist!.name, "bio" : self.artist!.bio, "tags" : self.artist!.tags, "events" : self.artist!.myEvents], merge: true) // pfp is already set from calling sub-function
             completion(true)
         }
             // ENCODE PFP first!
