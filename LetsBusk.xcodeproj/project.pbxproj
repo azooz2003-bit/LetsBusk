@@ -61,6 +61,8 @@
 		A374CACF291F28B900C5A909 /* LetsBusk */ = {
 			isa = PBXGroup;
 			children = (
+				A374CAEA291F3B1B00C5A909 /* View */,
+				A374CAE9291F3ADF00C5A909 /* Model */,
 				A374CADE291F39C600C5A909 /* GoogleService-Info.plist */,
 				A374CAD0291F28B900C5A909 /* LetsBuskApp.swift */,
 				A374CAD2291F28B900C5A909 /* ContentView.swift */,
@@ -76,6 +78,20 @@
 				A374CAD7291F28BA00C5A909 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A374CAE9291F3ADF00C5A909 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A374CAEA291F3B1B00C5A909 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
