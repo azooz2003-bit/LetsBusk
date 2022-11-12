@@ -14,16 +14,17 @@ struct TagsView: View {
     var body: some View {
         VStack {
             ScrollView() {
+                
                 ForEach(allTags, id: \.self) { row in
+                    
                     HStack {
+                        
                         ForEach(row, id: \.self) { tag in
                             
                             Button(action:{
-                                withAnimation {
-                                    
-                                }
+                                
                             }) {
-                                Text(tag.rawValue).frame(minWidth: 90, minHeight: 30, alignment: .center).padding(.leading).padding(.trailing).clipShape(Capsule()).background(tag.color).cornerRadius(10).padding(2)
+                                Text(tag.rawValue).frame(minWidth: 90, minHeight: 38, alignment: .center).padding(.horizontal).background(tag.color).clipShape(Capsule()).cornerRadius(10).padding(1).foregroundColor(.white)
                             }
                             
                         }

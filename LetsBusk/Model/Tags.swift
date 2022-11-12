@@ -19,7 +19,7 @@ enum Tags: String, CaseIterable, Hashable {
     case Caricature = "Caricature"
     case Acrobatics = "Acrobatics"
     case Piano = "Piano"
-    case StandupComedy = "Standup Comedy"
+    case StandupComedy = "Standup"
     case SlamPoetry = "Slam Poetry"
     case Opera = "Opera"
     case BreakDancing = "Break Dancing"

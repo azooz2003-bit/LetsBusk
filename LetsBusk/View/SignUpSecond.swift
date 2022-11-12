@@ -28,7 +28,11 @@ struct SignUpSecond: View {
                         Image(uiImage: image!).resizable().frame(width: 170, height: 170).clipShape(Ellipse()).overlay(Ellipse().stroke(Color.orange, lineWidth: 4)).shadow(radius: 3)
                         
                     } else {
-                        Ellipse().fillAndStrokeBorder(.white, borderColor: .orange, borderWidth: 4).frame(width: 170, height: 170).shadow(radius: 3)
+                        ZStack {
+                            Ellipse().fillAndStrokeBorder(.white, borderColor: .orange, borderWidth: 4).frame(width: 170, height: 170).shadow(radius: 3)
+                            Text("?").font(.system(size: 60)).foregroundColor(.orange)
+                        }
+                        
                         
                         ZStack {
                             Ellipse().frame(width: 35, height: 35)
@@ -36,7 +40,7 @@ struct SignUpSecond: View {
                         }.padding(.top, 115).padding(.leading, 115).foregroundColor(.white)
                     }
                 }
-            }.padding(.bottom, 70)
+            }.padding(.bottom, 45).padding(.top, 20)
             
             
             Group {
@@ -45,6 +49,9 @@ struct SignUpSecond: View {
                 TextField("What I hope to communicate through art, etc.", text: $bio, axis: .vertical).padding(.leading, 20).padding(.trailing, 10).padding(.top, 20).frame(width: 355, height: 150, alignment: .top).background(Color("fieldOrange")).cornerRadius(20).multilineTextAlignment(.leading).autocorrectionDisabled().autocapitalization(.none)
             }
             
+            Text("Genre Tags").padding(.leading, 32).font(.system(size: 22, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.top, 20)
+            
+            TagsView()
             
             
             
