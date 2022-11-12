@@ -118,7 +118,7 @@ class UserViewModel: ObservableObject {
                 return
             } else {
                 
-                self?.addData() { success in
+                self?.addData(pfpImage: nil) { success in
                     print("pre add was " + success.description)
                     completion(success)
                 }
@@ -195,22 +195,30 @@ class UserViewModel: ObservableObject {
     }
     
     
-    func addData(completion: @escaping (Bool) -> Void) {
+    func addData(pfpImage: UIImage?, completion: @escaping (Bool) -> Void) {
         if !artistIsAuthenticated {
             completion(false)
         }
-        do {
-            // ENCODE PFP first!
-            try db.collection("users").document((self.uuid)!).setData(["name" : artist?.name, "bio" : artist?.bio, "tags" : artist?.tags, "events" : artist?.myEvents])
+        
+        if let pfpImage = pfpImage {
+            persistPFPStorage(image: pfpImage) { success in
+                
+                if success {
+                    self.db.collection("users").document((self.uuid)!).setData(["name" : self.artist?.name, "bio" : self.artist?.bio, "tags" : self.artist?.tags, "events" : self.artist?.myEvents]) // pfp is already set from calling sub-function
+                }
+                
+                completion(success)
+
+            }
+        } else {
+            self.db.collection("users").document((self.uuid)!).setData(["name" : self.artist?.name, "bio" : self.artist?.bio, "tags" : self.artist?.tags, "events" : self.artist?.myEvents]) // pfp is already set from calling sub-function
             completion(true)
-        } catch {
-            completion(false)
-            print("adding data error")
         }
+            // ENCODE PFP first!
+        
+            
+        
     }
-    
-    
-    
 
 }
     

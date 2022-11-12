@@ -27,7 +27,7 @@ struct SignUpFirst: View {
             Group {
                 Text("Full Name").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32)
                 
-                TextField("John", text: $name).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20)
+                TextField("John", text: $name).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
                 
             }
             
@@ -35,14 +35,14 @@ struct SignUpFirst: View {
                 
                 Text("Email").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32).padding(.top, 20)
                 
-                TextField("johnhenry@gmail.com", text: $email).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20)
+                TextField("johnhenry@gmail.com", text: $email).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
             }
             
             Group {
                 
                 Text("Password").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32).padding(.top, 20)
                 
-                SecureField("********", text: $password).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20)
+                SecureField("********", text: $password).padding(.leading, 25).frame(width: 325, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
             }
             
             Button(action: {
@@ -59,7 +59,7 @@ struct SignUpFirst: View {
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).padding(.top, 150).navigationDestination(isPresented: $firstRegPassed, destination: {
-                SignUpSecond().environmentObject(userVM)
+                SignUpSecond().navigationBarBackButtonHidden().environmentObject(userVM)
             }).alert("Error!", isPresented: $errorOccurred) {
                 Button("Ok.", role: .cancel, action: {
                     errorOccurred = false

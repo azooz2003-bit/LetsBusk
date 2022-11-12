@@ -27,6 +27,8 @@
 		A374CB12291F87A100C5A909 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB11291F87A100C5A909 /* Errors.swift */; };
 		A374CB14291F92AA00C5A909 /* SignUpSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB13291F92AA00C5A909 /* SignUpSecond.swift */; };
 		A374CB17291F94E200C5A909 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = A374CB16291F94E200C5A909 /* SwiftUIX */; };
+		A374CB19291FC96B00C5A909 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB18291FC96B00C5A909 /* Tags.swift */; };
+		A374CB1B291FCD7200C5A909 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374CB1A291FCD7200C5A909 /* TagsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		A374CB0F291F83DB00C5A909 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		A374CB11291F87A100C5A909 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A374CB13291F92AA00C5A909 /* SignUpSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecond.swift; sourceTree = "<group>"; };
+		A374CB18291FC96B00C5A909 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		A374CB1A291FCD7200C5A909 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				A374CB0B291F7E3600C5A909 /* Artist.swift */,
 				A374CB0D291F837800C5A909 /* UserViewModel.swift */,
 				A374CB11291F87A100C5A909 /* Errors.swift */,
+				A374CB18291FC96B00C5A909 /* Tags.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				A374CB07291F6F8600C5A909 /* SignUpFirst.swift */,
 				A374CB13291F92AA00C5A909 /* SignUpSecond.swift */,
 				A374CB0F291F83DB00C5A909 /* LoginScreen.swift */,
+				A374CB1A291FCD7200C5A909 /* TagsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,9 +225,11 @@
 				A374CB0A291F7E2E00C5A909 /* Event.swift in Sources */,
 				A374CB0C291F7E3600C5A909 /* Artist.swift in Sources */,
 				A374CB12291F87A100C5A909 /* Errors.swift in Sources */,
+				A374CB1B291FCD7200C5A909 /* TagsView.swift in Sources */,
 				A374CB0E291F837800C5A909 /* UserViewModel.swift in Sources */,
 				A374CAEC291F3BA200C5A909 /* LandingPage.swift in Sources */,
 				A374CB10291F83DB00C5A909 /* LoginScreen.swift in Sources */,
+				A374CB19291FC96B00C5A909 /* Tags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

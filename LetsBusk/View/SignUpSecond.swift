@@ -15,6 +15,7 @@ struct SignUpSecond: View {
     @State var image: UIImage?
     @State var showPicker = false
     @State var secondRegPassed = true
+    @State var errorOccurred = false
     
     var body: some View {
         VStack {
@@ -39,27 +40,34 @@ struct SignUpSecond: View {
             
             
             Group {
-                Text("Bio").padding(.leading, 32).font(.system(size: 22, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading)
+                Text("Bio (2-3 sentences)").padding(.leading, 32).font(.system(size: 22, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading)
                 
-                TextField("What I hope to communicate through art, etc.", text: $bio, axis: .vertical).padding(.leading, 20).padding(.trailing, 10).padding(.top, 20).frame(width: 355, height: 150, alignment: .top).background(Color("fieldOrange")).cornerRadius(20).multilineTextAlignment(.leading)
+                TextField("What I hope to communicate through art, etc.", text: $bio, axis: .vertical).padding(.leading, 20).padding(.trailing, 10).padding(.top, 20).frame(width: 355, height: 150, alignment: .top).background(Color("fieldOrange")).cornerRadius(20).multilineTextAlignment(.leading).autocorrectionDisabled().autocapitalization(.none)
             }
+            
+            
+            
             
             Button(action: {
                 //CREATE SECOND PHASE FUNCTION INSTEAD
-                userVM.persistPFPStorage(image: image!) { success in
+                userVM.addData(pfpImage: image!) { success in
                     if success {
                         withAnimation {
                             secondRegPassed = true
                         }
                     } else {
-                        
+                        errorOccurred = true
                     }
                     
                 }
                 
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
-            }.shadow(radius: 3).padding(.top, 30)
+            }.shadow(radius: 3).padding(.top, 30).alert("Error!", isPresented: $errorOccurred) {
+                Button("Ok.", role: .cancel, action: {
+                    errorOccurred = false
+                })
+            }
             
         }.fullScreenCover(isPresented: $showPicker, onDismiss: {
             showPicker = false
