@@ -8,15 +8,27 @@
 import SwiftUI
 
 struct PerformanceFeed: View {
-    @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var eventVM: EventsViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Image("mapImage").resizable().scaledToFit().cornerRadius(10).padding(.horizontal, 20).shadow(radius: 8).frame(minWidth: 250, maxHeight: 225).padding(.top)
+                            EventCard(title: "Guitar with Jason", description: "A once in a lifetime experience.").padding(.top, 30)
+                            EventCard(title: "Guitar with Jason", description: "A once in a lifetime experience.").padding(.top, 30)
+                        }.navigationTitle("Feed!")
+            }
+            
+        }
+        
+
     }
 }
 
 struct PerformanceFeed_Previews: PreviewProvider {
     static var previews: some View {
-        PerformanceFeed()
+        PerformanceFeed().environmentObject(EventsViewModel(userVM: UserViewModel(), locManager: LocationManager()))
     }
 }

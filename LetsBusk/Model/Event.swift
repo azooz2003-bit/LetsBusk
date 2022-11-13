@@ -7,17 +7,18 @@
 
 import Foundation
 import FirebaseFirestore
+import CoreLocation
 
-class Event: ObservableObject {
+class Event: ObservableObject, Identifiable {
     var title: String
     var genreTags: [String : Bool]
-    var time: Date
-    var location: [String : Double]
+    var location: CLLocationCoordinate2D // lon, lat
+    var description: String
     
-    init(title: String, genreTags: [String : Bool], time: Date, location: [String : Double]) {
+    init(title: String, genreTags: [String : Bool], location: CLLocationCoordinate2D, description: String) {
         self.title = title
         self.genreTags = genreTags
-        self.time = time
         self.location = location
+        self.description = description
     }
 }

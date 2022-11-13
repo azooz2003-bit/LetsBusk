@@ -12,7 +12,7 @@ import SwiftUI
 enum Screen: CaseIterable {
     case PerformanceFeed
     case MapScreen
-    case ProfileScreen
+    case ActivityManagement
     
     var icon: String {
         var i: String
@@ -20,9 +20,9 @@ enum Screen: CaseIterable {
         case .PerformanceFeed:
             i = "house"
         case .MapScreen:
-            i = "gear"
-        case .ProfileScreen:
-            i = "house"
+            i = "location.magnifyingglass"
+        case .ActivityManagement:
+            i = "person.crop.circle"
         
         }
         
@@ -33,18 +33,19 @@ enum Screen: CaseIterable {
 
 struct ArtistTabViewEntry: View {
     @StateObject var router = TabRouter()
-    @EnvironmentObject var userVM: UserViewModel
+    //@EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var eventsVM: EventsViewModel
     
     var body: some View {
         
         VStack {
             ZStack {
                 switch router.screen {
-                case .ProfileScreen:
+                case .ActivityManagement:
                     withAnimation {
                         NavigationView {
                             VStack {
-                                ProfileScreen()
+                                ActivityManagement().environmentObject(eventsVM)
                             }
                         }
                     }
@@ -53,7 +54,7 @@ struct ArtistTabViewEntry: View {
                     withAnimation {
                         NavigationView {
                             VStack {
-                                MapScreen()
+                                MapViewSelection().environmentObject(eventsVM)
                             }
                         }
                     }
@@ -62,7 +63,7 @@ struct ArtistTabViewEntry: View {
                     withAnimation {
                         NavigationView {
                             VStack {
-                                PerformanceFeed()
+                                PerformanceFeed().environmentObject(eventsVM)
                             }
                         }
                     }
@@ -92,8 +93,8 @@ struct ArtistTabViewEntry: View {
     }
 }
 
-struct TabViewEntry_Previews: PreviewProvider {
+struct ArtistTabViewEntry_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistTabViewEntry().environmentObject(UserViewModel())
+        ArtistTabViewEntry().environmentObject(EventsViewModel(userVM: UserViewModel(), locManager: LocationManager()))
     }
 }

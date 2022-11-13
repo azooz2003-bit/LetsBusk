@@ -9,7 +9,7 @@ import Foundation
 
 class TabRouter: ObservableObject {
     
-    @Published var screen: Screen = .ProfileScreen
+    @Published var screen: Screen = .ActivityManagement
     
     func change(to screen: Screen) {
         self.screen = screen

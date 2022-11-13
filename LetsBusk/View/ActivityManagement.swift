@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct ProfileScreen: View {
+struct ActivityManagement: View {
+    @EnvironmentObject var eventVM: EventsViewModel
     var body: some View {
-        Text("yyy, World!")
+        VStack {
+            
+        }
     }
 }
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen()
+        ActivityManagement()
     }
 }

@@ -50,7 +50,7 @@ struct LoginScreen: View {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).padding(.top, 150)
                 .navigationDestination(isPresented: $loginPassed, destination: {
-                    EmptyView().environmentObject(userVM)
+                    ArtistTabViewEntry().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
                 }).alert("Error!", isPresented: $errorOccurred) {
                     Button("Ok.", role: .cancel, action: {
                         errorOccurred = false

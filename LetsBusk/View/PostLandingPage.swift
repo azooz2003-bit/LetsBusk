@@ -12,6 +12,7 @@ struct PostLandingPage: View {
     
     @State var loginPressed = false
     @State var signUpPressed = false
+    @State var userPressed = false
     
     var body: some View {
         
@@ -52,10 +53,12 @@ struct PostLandingPage: View {
             HStack {
                 Text("Not an artist?").font(.system(size: 18, weight: .semibold, design: .rounded))
                 Button(action: {
-                    
+                    userPressed = true
                 }) {
                     Text("Click here.").font(.system(size: 18, weight: .semibold, design: .rounded)).foregroundColor(.orange)
-                }
+                }.navigationDestination(isPresented: $userPressed, destination: {
+                    ArtistTabViewEntry()
+                })
             }.padding(.top, 20)
         }
     }

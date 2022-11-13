@@ -11,12 +11,12 @@ import SwiftUIX
 struct SignUpSecond: View {
     @EnvironmentObject var userVM: UserViewModel
     
-    let tagsView = TagViews()
+    let tagsView = TagsView()
 
     @State var bio = ""
     @State var image: UIImage?
     @State var showPicker = false
-    @State var secondRegPassed = true
+    @State var secondRegPassed = false
     @State var errorOccurred = false
     
     var body: some View {
@@ -78,7 +78,7 @@ struct SignUpSecond: View {
             }) {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.navigationDestination(isPresented: $secondRegPassed, destination: {
-                PerformanceFeed().environmentObject(userVM)
+                ArtistTabViewEntry().navigationBarBackButtonHidden().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager(), events: []))
             }).shadow(radius: 3).padding(.top, 30).alert("Error!", isPresented: $errorOccurred) {
                 Button("Ok.", role: .cancel, action: {
                     errorOccurred = false

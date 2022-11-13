@@ -25,9 +25,9 @@ class UserViewModel: ObservableObject {
     @Published var artist: Artist?
     
     @Published var isAuthenticating: Bool = false
-    private let auth = Auth.auth()
-    private let db = Firestore.firestore()
-    private let storage = Storage.storage()
+    let auth = Auth.auth()
+    let db = Firestore.firestore()
+    let storage = Storage.storage()
         
     var uuid: String? {
         auth.currentUser?.uid
@@ -192,7 +192,7 @@ class UserViewModel: ObservableObject {
     }
     
     func getPFPfromStorage(url: String, completion: @escaping (Bool) -> Void) {
-        storage.reference(forURL: url).getData(maxSize: 1 * 1024 * 1024) { data, error in
+        storage.reference(forURL: url).getData(maxSize: 1 * 1500 * 1500) { data, error in
             if let error = error {
                 completion(false)
                 print("Image not received! " + error.localizedDescription)
@@ -233,11 +233,15 @@ class UserViewModel: ObservableObject {
         }
             // ENCODE PFP first!
         
-            
+    }
+    
+    func getUserEventsAsObj(completion: @escaping (Bool) -> Void) {
         
     }
 
 }
+
+
     
 
 
