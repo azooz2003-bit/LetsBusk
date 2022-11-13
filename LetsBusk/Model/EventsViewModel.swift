@@ -16,6 +16,9 @@ class EventsViewModel: ObservableObject {
     @Published var userVM: UserViewModel
     @Published var locManager: LocationManager
     @Published var events: [Event] // universal events
+    @Published var userEvents: [Event] = []
+
+    @Published var currentEventData: Dictionary<String, Any>?
 
     
     init(userVM: UserViewModel, locManager: LocationManager, events: [Event] = []) {
@@ -51,7 +54,7 @@ class EventsViewModel: ObservableObject {
     func addEvent(event: Event, completion: @escaping (Bool) -> (Void)) {
         let ref = userVM.db.collection("event").document()
         print("id is" + ref.documentID)
-        ref.setData(["title" : event.title, "genreTags" : event.genreTags, "location" : ["lat" : event.location.latitude, "lon" : event.location.longitude]]) { error in
+        ref.setData(["title" : event.title, "genreTags" : event.genreTags, "location" : ["lat" : event.location.latitude, "lon" : event.location.longitude], "description": event.description]) { error in
             if let error = error {
                 completion(false)
                 print("Add event failed!!!" + error.localizedDescription)
@@ -60,17 +63,34 @@ class EventsViewModel: ObservableObject {
                 print("operation")
             }
         }
-        userVM.artist?.myEvents.append(ref.documentID.description)
+        userVM.artist!.myEvents.append(ref.documentID.description)
+        events.append(event)
         userVM.addData(pfpImage: nil) { success in
             completion(success)
         }
     }
     
-    
+    func getEvent(id: String) {
         
+        self.getEventConfirmation(id: id) { success, data in
+            if (success) {
+                self.currentEventData = data
+            } else {
+                self.currentEventData = nil
+            }
+        }
+                
+    }
     
-    
-    
-    
+    func getEventConfirmation(id: String, completion: @escaping (Bool, Dictionary<String, Any>) -> (Void)) {
+        userVM.db.collection("event").document(id).getDocument { doc, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false, [:])
+            } else {
+                completion(true, (doc?.data())!)
+            }
+        }
+    }
     
 }

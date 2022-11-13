@@ -36,7 +36,7 @@ struct PostLandingPage: View {
             }) {
                 Text("Login").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).navigationDestination(isPresented: $loginPressed, destination: {
-                LoginScreen().environmentObject(userVM)
+                LoginScreen().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
             })
             
             Button(action: {
@@ -46,7 +46,7 @@ struct PostLandingPage: View {
             }) {
                 Text("Sign-up").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).navigationDestination(isPresented: $signUpPressed, destination: {
-                SignUpFirst().environmentObject(userVM)
+                SignUpFirst().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
             })
                 
             
@@ -57,7 +57,7 @@ struct PostLandingPage: View {
                 }) {
                     Text("Click here.").font(.system(size: 18, weight: .semibold, design: .rounded)).foregroundColor(.orange)
                 }.navigationDestination(isPresented: $userPressed, destination: {
-                    ArtistTabViewEntry()
+                    ArtistTabViewEntry().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
                 })
             }.padding(.top, 20)
         }

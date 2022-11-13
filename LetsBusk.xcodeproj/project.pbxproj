@@ -38,6 +38,7 @@
 		A3E3003F292059C300A4705C /* MapViewSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3003E292059C300A4705C /* MapViewSelection.swift */; };
 		A3E300432920C3B100A4705C /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E300422920C3B100A4705C /* EventCard.swift */; };
 		A3E300452920D52D00A4705C /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E300442920D52D00A4705C /* AddEvent.swift */; };
+		A3E30047292103C700A4705C /* EventInfopage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E30046292103C700A4705C /* EventInfopage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		A3E3003E292059C300A4705C /* MapViewSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSelection.swift; sourceTree = "<group>"; };
 		A3E300422920C3B100A4705C /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		A3E300442920D52D00A4705C /* AddEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
+		A3E30046292103C700A4705C /* EventInfopage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfopage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				A3B7D7892920392F001F6128 /* ArtistTabViewEntry.swift */,
 				A3E300442920D52D00A4705C /* AddEvent.swift */,
 				A3E3003E292059C300A4705C /* MapViewSelection.swift */,
+				A3E30046292103C700A4705C /* EventInfopage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				A3B7D780292024EC001F6128 /* PerformanceFeed.swift in Sources */,
 				A374CB08291F6F8600C5A909 /* SignUpFirst.swift in Sources */,
 				A374CB14291F92AA00C5A909 /* SignUpSecond.swift in Sources */,
+				A3E30047292103C700A4705C /* EventInfopage.swift in Sources */,
 				A374CB06291F583700C5A909 /* PostLandingPage.swift in Sources */,
 				A374CAD1291F28B900C5A909 /* LetsBuskApp.swift in Sources */,
 				A374CB0A291F7E2E00C5A909 /* Event.swift in Sources */,
@@ -322,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -376,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -404,6 +408,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +418,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,6 +440,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +450,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

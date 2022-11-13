@@ -10,7 +10,7 @@ import SwiftUI
 struct AddEvent: View {
     @State var title = ""
     @State var description = ""
-    @State var created = ""
+    @State var created = false
     
     @EnvironmentObject var eventVM: EventsViewModel
     
@@ -18,7 +18,7 @@ struct AddEvent: View {
         VStack {
             Text("Ongoing Event").font(.system(size: 32, weight: .semibold, design: .rounded)).padding(.bottom, 0.75)
             
-            Text("Share your art!").font(.system(size: 19, weight: .regular, design: .rounded)).foregroundColor(.secondary).padding(.bottom, 80)
+            Text("Share your passion!").font(.system(size: 19, weight: .regular, design: .rounded)).foregroundColor(.secondary).padding(.bottom, 80)
             
             Group {
                 Text("Title").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .center).padding(.horizontal, 32)
@@ -37,7 +37,7 @@ struct AddEvent: View {
             Button(action: {
                 eventVM.addEvent(event: Event(title: title, genreTags: [:], location: eventVM.locManager.region.center, description: description)) { result in
                     if (result) {
-                        created = true
+                        
                     }
                     
                 }
@@ -45,7 +45,7 @@ struct AddEvent: View {
             }, label: {
                 Text("Create").frame(minWidth: 345, minHeight: 60 ).background(Gradient(colors: [Color.systemOrange, Color.systemOrange, Color.systemOrange, Color.systemOrange, Color.white])).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded)).shadow(radius: 4)
             }).padding(.top, 40).navigationDestination(isPresented: $created, destination: {
-                
+                ArtistTabViewEntry().environmentObject(eventVM)
             })
             
         }
@@ -54,6 +54,6 @@ struct AddEvent: View {
 
 struct AddEvent_Previews: PreviewProvider {
     static var previews: some View {
-        AddEvent()
+        AddEvent().environmentObject(EventsViewModel(userVM: UserViewModel(), locManager: LocationManager()))
     }
 }

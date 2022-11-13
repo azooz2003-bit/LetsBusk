@@ -25,7 +25,7 @@ struct LoginScreen: View {
                 
                 Text("Email").font(.system(size: 18, weight: .semibold, design: .rounded)).frame( maxWidth: .infinity, alignment: .leading).padding(.leading, 32).padding(.top, 20)
                 
-                TextField("johnhenry@gmail.com", text: $email).padding(.leading, 25).frame(width: 350, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
+                TextField("johnhenry@gmail.com" + "", text: $email).padding(.leading, 25).frame(width: 350, height: 50).background(Color("fieldOrange")).cornerRadius(20).autocorrectionDisabled().autocapitalization(.none)
             }
             
             Group {
@@ -50,7 +50,7 @@ struct LoginScreen: View {
                 Text("Proceed").frame(minWidth: 345, minHeight: 60 ).background(.orange).cornerRadius(20).foregroundColor(.white).font(.system(size: 30, weight: .medium, design: .rounded))
             }.shadow(radius: 3).padding(.top, 150)
                 .navigationDestination(isPresented: $loginPassed, destination: {
-                    ArtistTabViewEntry().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
+                    ArtistTabViewEntry().navigationBarBackButtonHidden().environmentObject(EventsViewModel(userVM: userVM, locManager: LocationManager()))
                 }).alert("Error!", isPresented: $errorOccurred) {
                     Button("Ok.", role: .cancel, action: {
                         errorOccurred = false

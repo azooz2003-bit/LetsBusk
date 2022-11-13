@@ -23,7 +23,6 @@ import FirebaseStorage
 
 class UserViewModel: ObservableObject {
     @Published var artist: Artist?
-    
     @Published var isAuthenticating: Bool = false
     let auth = Auth.auth()
     let db = Firestore.firestore()
@@ -235,7 +234,7 @@ class UserViewModel: ObservableObject {
         
     }
     
-    func getUserEventsAsObj(completion: @escaping (Bool) -> Void) {
+    func setUserEventsAsObj(completion: @escaping (Bool) -> Void) {
         
     }
 

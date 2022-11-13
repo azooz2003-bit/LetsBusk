@@ -13,7 +13,7 @@ struct EventCard: View {
     
     var body: some View {
         ZStack {
-            Rectangle().foregroundLinearGradient(Gradient(colors: [Color.yellow, Color.yellow, Color.orange, Color.orange])).frame(width: 400, height: 240).cornerRadius(13).shadow(radius: 7)
+            Rectangle().foregroundLinearGradient(Gradient(colors: [Color.yellow, Color.yellow, Color.orange, Color.orange])).frame(width: 400, height: 155).cornerRadius(13).shadow(radius: 7)
             ZStack {
                 VStack{
                     Text(title).font(.system(size: 20, weight: .semibold, design: .rounded))

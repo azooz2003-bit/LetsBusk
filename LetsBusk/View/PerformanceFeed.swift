@@ -15,10 +15,21 @@ struct PerformanceFeed: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Image("mapImage").resizable().scaledToFit().cornerRadius(10).padding(.horizontal, 20).shadow(radius: 8).frame(minWidth: 250, maxHeight: 225).padding(.top)
+                    Text("Nearby Performers").font(.system(size: 35, weight: .semibold, design: .rounded)).padding(.vertical, 12).padding(.vertical, 23)
+                   
+                    Image("mapImage").resizable().scaledToFit().cornerRadius(10).shadow(radius: 8).frame(minWidth: 250, maxWidth: .infinity, maxHeight: 225, alignment: .center).padding(.bottom).padding(.horizontal)
+                    
+                   
+                        
+                    
+                    Rectangle().frame( height: 1).padding(.horizontal, 24).cornerRadius( 6)
+                    
+                    ForEach(eventVM.events, id: \.self.id) { event in
+                        EventCard(title: event.title, description: event.description)
+                    }
                             EventCard(title: "Guitar with Jason", description: "A once in a lifetime experience.").padding(.top, 30)
-                            EventCard(title: "Guitar with Jason", description: "A once in a lifetime experience.").padding(.top, 30)
-                        }.navigationTitle("Feed!")
+                            EventCard(title: "Jane's Karaoke Craze ", description: "Sing your hearts out.").padding(.top, 30)
+                }
             }
             
         }

@@ -77,6 +77,7 @@ struct ArtistTabViewEntry: View {
                     
                     Spacer()
                     Button(action: {
+                        
                         withAnimation {
                             router.change(to: screen)
                         }

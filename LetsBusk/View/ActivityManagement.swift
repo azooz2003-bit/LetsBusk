@@ -11,13 +11,20 @@ struct ActivityManagement: View {
     @EnvironmentObject var eventVM: EventsViewModel
     var body: some View {
         VStack {
+            //myEvents
+            
+                   
+                
+                    
+            
             
         }
     }
 }
 
+
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityManagement()
+        ActivityManagement().environmentObject(EventsViewModel(userVM: UserViewModel(), locManager: LocationManager()))
     }
 }
