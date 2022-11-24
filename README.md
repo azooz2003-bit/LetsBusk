@@ -1,6 +1,6 @@
 # LetsBusk
 
-![letsbusk](https://user-images.githubusercontent.com/67667005/203854064-cdf154b3-b622-4ebe-94d5-4814c7cdea8c.png)
+![letsbusk](https://user-images.githubusercontent.com/67667005/203854151-f641ac5e-d417-4cd8-a12f-4a73ce1d2e0d.svg)
 
 # Devpost Link:
 https://devpost.com/software/let-s-busk?ref_content=my-projects-tab&ref_feature=my_projects
